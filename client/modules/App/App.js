@@ -7,12 +7,14 @@ import styles from './App.css';
 
 // Import Components
 import Helmet from 'react-helmet';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+// import Header from './components/Header/Header';
+// import Footer from './components/Footer/Footer';
 
 // Import Actions
-import { toggleAddPost } from './AppActions';
-import { switchLanguage } from '../../modules/Intl/IntlActions';
+// import { toggleAddPost } from './AppActions';
+// import { switchLanguage } from '../../modules/Intl/IntlActions';
+
+// *** THY *** : This "App" is the wrapper for the whole apps with header, footer and devtools
 
 let DevTools;
 if (process.env.NODE_ENV === 'development') {
@@ -30,9 +32,9 @@ export class App extends Component {
     this.setState({isMounted: true}); // eslint-disable-line
   }
 
-  toggleAddPostSection = () => {
-    this.props.dispatch(toggleAddPost());
-  };
+  // toggleAddPostSection = () => {
+  //   this.props.dispatch(toggleAddPost());
+  // };
 
   render() {
     return (
@@ -40,7 +42,7 @@ export class App extends Component {
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
         <div>
           <Helmet
-            title="MERN Starter - Blog App"
+            title="Universal Dashboard"
             titleTemplate="%s - Blog App"
             meta={[
               { charset: 'utf-8' },
@@ -54,15 +56,15 @@ export class App extends Component {
               },
             ]}
           />
-          <Header
+          {/* <Header
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
             intl={this.props.intl}
             toggleAddPost={this.toggleAddPostSection}
-          />
+          /> */}
           <div className={styles.container}>
             {this.props.children}
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </div>
     );
